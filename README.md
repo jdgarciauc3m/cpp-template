@@ -6,7 +6,7 @@ from popular IDEs and the command line.
 ## Features
 
 - Docker development environment with:
-  - GCC-15 for C++ compilation
+  - GCC-14 for C++ compilation
   - CMake 3.30+ (meets CMake 4.0 requirement)
   - Clang-20 with full toolchain:
     - clang-tidy for static analysis
