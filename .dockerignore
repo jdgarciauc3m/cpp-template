@@ -1,0 +1,33 @@
+# Git
+.git
+.gitignore
+
+# IDE files
+.vscode
+.idea
+.devcontainer
+*.swp
+*.swo
+
+# Build artifacts
+build/
+dist/
+*.o
+*.a
+*.so
+*.exe
+
+# Documentation
+docs/
+*.md
+!README.md
+!.clangd
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*~

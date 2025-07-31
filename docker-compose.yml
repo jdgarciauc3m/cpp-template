@@ -1,0 +1,17 @@
+services:
+  cpp-dev:
+    build: .
+    container_name: cpp-template-dev
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - cpp-build-cache:/workspace/build
+    stdin_open: true
+    tty: true
+    environment:
+      - CC=gcc-14
+      - CXX=g++-14
+    command: /bin/bash
+
+volumes:
+  cpp-build-cache:
