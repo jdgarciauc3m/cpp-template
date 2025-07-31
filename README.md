@@ -8,7 +8,7 @@ from popular IDEs and the command line.
 - Docker development environment with:
   - GCC-15 for C++ compilation
   - CMake 3.30+ (meets CMake 4.0 requirement)
-  - Clang-21 with full toolchain:
+  - Clang-20 with full toolchain:
     - clang-tidy for static analysis
     - clang-format for code formatting
     - clangd for language server support
