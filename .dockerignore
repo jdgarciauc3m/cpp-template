@@ -20,7 +20,6 @@ dist/
 docs/
 *.md
 !README.md
-!.clangd
 
 # OS files
 .DS_Store
