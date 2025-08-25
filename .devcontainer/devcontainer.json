@@ -24,9 +24,9 @@
 				"C_Cpp.default.cStandard": "c17",
 				"C_Cpp.default.cppStandard": "c++23",
 				"C_Cpp.default.intelliSenseMode": "gcc-x64",
-				"C_Cpp.clang_format_path": "/usr/bin/clang-format-20",
+				"C_Cpp.clang_format_path": "/usr/bin/clang-format-19",
 				"C_Cpp.codeAnalysis.clangTidy.enabled": false,
-				"C_Cpp.codeAnalysis.clangTidy.path": "/usr/bin/clang-tidy-20",
+				"C_Cpp.codeAnalysis.clangTidy.path": "/usr/bin/clang-tidy-19",
 				
 				// CMake configuration
 				"cmake.configureOnOpen": true,
@@ -34,7 +34,7 @@
 				"cmake.cmakePath": "/usr/bin/cmake",
 				
 				// Clangd configuration as primary language server
-				"clangd.path": "/usr/bin/clangd-20",
+				"clangd.path": "/usr/bin/clangd-19",
 				"clangd.arguments": [
 					"--header-insertion=iwyu",
 					"--completion-style=detailed",

@@ -23,9 +23,8 @@ RUN apt-get update --allow-insecure-repositories || true \
         lsb-release \
     && rm -rf /var/lib/apt/lists/*
 
-# Install GCC-14
-RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
-    apt-get update && \
+# Install GCC-14 (available in Ubuntu 24.04 standard repos)
+RUN apt-get update && \
     apt-get install -y \
     gcc-14 \
     g++-14 \
@@ -44,30 +43,27 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
     apt-get install -y cmake && \
     rm -rf /var/lib/apt/lists/*
 
-# Install LLVM/Clang 20 (latest available for Ubuntu 24.04)
-RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | \
-    gpg --dearmor -o /etc/apt/trusted.gpg.d/llvm-snapshot.gpg && \
-    add-apt-repository "deb http://apt.llvm.org/noble/ llvm-toolchain-noble-20 main" && \
-    apt-get update && \
+# Install LLVM/Clang 19 (latest available in Ubuntu 24.04 standard repos)
+RUN apt-get update && \
     apt-get install -y \
-    clang-20 \
-    clang++-20 \
-    clang-tools-20 \
-    clang-tidy-20 \
-    clang-format-20 \
-    clangd-20 \
-    libc++-20-dev \
-    libc++abi-20-dev \
-    lld-20 \
-    lldb-20 \
+    clang-19 \
+    clang++-19 \
+    clang-tools-19 \
+    clang-tidy-19 \
+    clang-format-19 \
+    clangd-19 \
+    libc++-19-dev \
+    libc++abi-19-dev \
+    lld-19 \
+    lldb-19 \
     && rm -rf /var/lib/apt/lists/*
 
-# Set Clang-20 as alternatives
-RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-20 100 && \
-    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-20 100 && \
-    update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-20 100 && \
-    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-20 100 && \
-    update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-20 100
+# Set Clang-19 as alternatives
+RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-19 100 && \
+    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-19 100 && \
+    update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-19 100 && \
+    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-19 100 && \
+    update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-19 100
 
 # Install additional useful development tools
 RUN apt-get update && apt-get install -y \
@@ -97,7 +93,7 @@ USER developer
 # Set up shell environment
 RUN echo 'export CC=gcc-14' >> ~/.bashrc && \
     echo 'export CXX=g++-14' >> ~/.bashrc && \
-    echo 'export PATH=/usr/lib/llvm-20/bin:$PATH' >> ~/.bashrc
+    echo 'export PATH=/usr/lib/llvm-19/bin:$PATH' >> ~/.bashrc
 
 # Verify installations by creating a simple test script
 RUN echo '#!/bin/bash' > /tmp/verify_tools.sh && \
